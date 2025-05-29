@@ -1,0 +1,284 @@
+/* Style utama untuk website data mahasiswa */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --accent-color: #4895ef;
+    --success-color: #4cc9f0;
+    --warning-color: #f72585;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --gray-color: #e9ecef;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    color: var(--dark-color);
+}
+
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-color), var(--success-color));
+    border-radius: 2px;
+}
+
+/* Form styling */
+form {
+    margin-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Perbaikan untuk halaman index.php - form pencarian */
+.container form:first-of-type {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.container form:first-of-type input[type="text"] {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.container form:first-of-type button {
+    flex-shrink: 0;
+    margin-top: 0;
+    height: 45px;
+}
+
+input[type="text"], select, textarea {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 200px;
+}
+
+input[type="text"]:focus, select:focus, textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+    outline: none;
+}
+
+button {
+    padding: 12px 25px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+}
+
+/* Perbaikan untuk halaman tambah.php dan edit.php */
+.container form input[type="text"] {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+/* Perbaikan untuk tombol Simpan dan Update */
+.container form button[name="simpan"],
+.container form button[name="update"] {
+    margin-top: 5px;
+    align-self: flex-start;
+    width: auto;
+}
+
+/* Tombol Tambah Mahasiswa */
+.container > a > button {
+    margin-bottom: 20px;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 500;
+}
+
+tr:nth-child(even) {
+    background-color: var(--gray-color);
+}
+
+tr:hover {
+    background-color: rgba(67, 97, 238, 0.05);
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Links styling */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Action links */
+td a {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: var(--light-color);
+}
+
+td a:first-child {
+    color: var(--accent-color);
+}
+
+td a:last-child {
+    color: var(--warning-color);
+}
+
+td a:hover {
+    background-color: var(--gray-color);
+    text-decoration: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    input[type="text"], button {
+        width: 100%;
+    }
+    
+    /* Perbaikan responsif untuk tombol */
+    .container form:first-of-type {
+        flex-direction: row;
+    }
+    
+    .container form:first-of-type button {
+        width: auto;
+        margin-top: 0;
+    }
+}
+
+/* Back button */
+.back-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 15px;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.back-button:hover {
+    background-color: var(--gray-color);
+}
+
+/* Success & Error messages */
+.message {
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.success {
+    background-color: rgba(76, 201, 240, 0.2);
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+}
+
+.error {
+    background-color: rgba(247, 37, 133, 0.2);
+    color: var(--warning-color);
+    border: 1px solid var(--warning-color);
+}
